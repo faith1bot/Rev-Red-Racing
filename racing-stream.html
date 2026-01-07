@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racing Gaming Live Stream | Speed & Thrills</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Orbitron:wght@400;700;900&family=Teko:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="racing-loader">
+                <div class="car-icon">
+                    <i class="fas fa-flag-checkered"></i>
+                </div>
+                <div class="track-line"></div>
+            </div>
+            <h2>STARTING ENGINES...</h2>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-flag-checkered"></i>
+                <span>RACING STREAM</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">HOME</a></li>
+                <li><a href="#stream" class="nav-link">LIVE STREAM</a></li>
+                <li><a href="#schedule" class="nav-link">SCHEDULE</a></li>
+                <li><a href="#games" class="nav-link">GAMES</a></li>
+                <li><a href="#social" class="nav-link">SOCIAL</a></li>
+            </ul>
+            <div class="live-indicator">
+                <span class="live-dot"></span>
+                <span>LIVE</span>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="speed-lines"></div>
+            <div class="particle-field"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="glitch-text" data-text="RACING GAMING LIVE">RACING GAMING LIVE</h1>
+                <p class="hero-subtitle">HIGH-SPEED ACTION • EPIC DRIFTS • VICTORY LAPS</p>
+                <div class="stream-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-users"></i>
+                        <span class="stat-number" data-target="1234">0</span>
+                        <span class="stat-label">VIEWERS</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-trophy"></i>
+                        <span class="stat-number" data-target="89">0</span>
+                        <span class="stat-label">WINS</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span class="stat-number" data-target="287">0</span>
+                        <span class="stat-label">MPH TOP SPEED</span>
+                    </div>
+                </div>
+                <div class="cta-buttons">
+                    <button class="btn-primary btn-racing" onclick="scrollToStream()">
+                        <i class="fas fa-play"></i> WATCH NOW
+                    </button>
+                    <button class="btn-secondary btn-racing" onclick="toggleNotification()">
+                        <i class="fas fa-bell"></i> NOTIFY ME
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="car-showcase">
+                    <div class="car-silhouette">
+                        <i class="fas fa-car-side"></i>
+                    </div>
+                    <div class="speed-trail"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Stream Section -->
+    <section id="stream" class="stream-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-broadcast-tower"></i>
+                    LIVE STREAM
+                </h2>
+                <div class="stream-status">
+                    <span class="status-badge live">LIVE NOW</span>
+                    <span class="stream-duration">00:00:00</span>
+                </div>
+            </div>
+            
+            <div class="stream-container">
+                <div class="stream-player">
+                    <div class="stream-placeholder">
+                        <div class="placeholder-content">
+                            <i class="fas fa-gamepad"></i>
+                            <h3>STREAM PLAYER</h3>
+                            <p>Connect your streaming platform here</p>
+                            <button class="btn-connect" title="Connect your streaming platform">CONNECT STREAM</button>
+                        </div>
+                    </div>
+                    <div class="stream-overlay">
+                        <div class="stream-info">
+                            <span class="game-title">CarX Street</span>
+                            <span class="viewer-count">
+                                <i class="fas fa-eye"></i>
+                                <span class="viewer-number">1.2K</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stream-sidebar">
+                    <div class="chat-widget">
+                        <div class="chat-header">
+                            <h3>LIVE CHAT</h3>
+                            <span class="chat-online">234 online</span>
+                        </div>
+                        <div class="chat-messages" id="chatMessages">
+                            <div class="message">
+                                <span class="user-name">SpeedRacer92:</span>
+                                <span class="message-text">Let's go! 🔥</span>
+                            </div>
+                            <div class="message">
+                                <span class="user-name">DriftKing:</span>
+                                <span class="message-text">Amazing drift!</span>
+                            </div>
+                            <div class="message">
+                                <span class="user-name">RacingFan:</span>
+                                <span class="message-text">What car are you using?</span>
+                            </div>
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" placeholder="Type a message..." id="chatInput">
+                            <button class="send-btn" onclick="sendMessage()" title="Send message">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- ElevenLabs Agent Widget -->
+                    <div class="ai-assistant">
+                        <div class="ai-header">
+                            <h3>AI RACING COACH</h3>
+                            <span class="ai-status">ONLINE</span>
+                        </div>
+                        <div class="ai-widget-container">
+                            <elevenlabs-convai agent-id="3meuWcdt6TuA76OBOVFW"></elevenlabs-convai>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="schedule-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-calendar-alt"></i>
+                    RACING SCHEDULE
+                </h2>
+            </div>
+            
+            <div class="schedule-grid">
+                <div class="schedule-card">
+                    <div class="schedule-time">6:00 PM</div>
+                    <div class="schedule-content">
+                        <h4>CarX Street</h4>
+                        <p>Street Racing & Drift Battles</p>
+                        <div class="game-tags">
+                            <span class="tag">DRIFT</span>
+                            <span class="tag">STREET</span>
+                        </div>
+                    </div>
+                    <div class="schedule-status upcoming">
+                        <i class="fas fa-clock"></i>
+                        UPCOMING
+                    </div>
+                </div>
+                
+                <div class="schedule-card">
+                    <div class="schedule-time">8:00 PM</div>
+                    <div class="schedule-content">
+                        <h4>The Crew 2</h4>
+                        <p>Open World Racing Challenge</p>
+                        <div class="game-tags">
+                            <span class="tag">OPEN WORLD</span>
+                            <span class="tag">MULTIPLAYER</span>
+                        </div>
+                    </div>
+                    <div class="schedule-status upcoming">
+                        <i class="fas fa-clock"></i>
+                        UPCOMING
+                    </div>
+                </div>
+                
+                <div class="schedule-card">
+                    <div class="schedule-time">10:00 PM</div>
+                    <div class="schedule-content">
+                        <h4>Forza Horizon 5</h4>
+                        <p>Mexico Racing Festival</p>
+                        <div class="game-tags">
+                            <span class="tag">FESTIVAL</span>
+                            <span class="tag">OFFROAD</span>
+                        </div>
+                    </div>
+                    <div class="schedule-status upcoming">
+                        <i class="fas fa-clock"></i>
+                        UPCOMING
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="games-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-gamepad"></i>
+                    FEATURED GAMES
+                </h2>
+            </div>
+            
+            <div class="games-showcase">
+                <div class="game-card featured">
+                    <div class="game-image">
+                        <div class="game-placeholder">
+                            <i class="fas fa-car"></i>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>CarX Street</h3>
+                        <p>Ultimate street racing experience with realistic physics and customization</p>
+                        <div class="game-stats">
+                            <span><i class="fas fa-star"></i> 4.8</span>
+                            <span><i class="fas fa-play"></i> 250+ hours</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <div class="game-image">
+                        <div class="game-placeholder">
+                            <i class="fas fa-flag-checkered"></i>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>The Crew 2</h3>
+                        <p>Massive open world across America with motorsports variety</p>
+                        <div class="game-stats">
+                            <span><i class="fas fa-star"></i> 4.5</span>
+                            <span><i class="fas fa-play"></i> 180+ hours</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <div class="game-image">
+                        <div class="game-placeholder">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Forza Horizon 5</h3>
+                        <p>Epic racing festival in the beautiful landscapes of Mexico</p>
+                        <div class="game-stats">
+                            <span><i class="fas fa-star"></i> 4.9</span>
+                            <span><i class="fas fa-play"></i> 320+ hours</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Section -->
+    <section id="social" class="social-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-share-alt"></i>
+                    CONNECT & FOLLOW
+                </h2>
+            </div>
+            
+            <div class="social-grid">
+                <a href="#" class="social-card twitch" title="Follow on Twitch">
+                    <i class="fab fa-twitch"></i>
+                    <h3>TWITCH</h3>
+                    <span>Follow for live streams</span>
+                </a>
+                
+                <a href="#" class="social-card youtube" title="Subscribe on YouTube">
+                    <i class="fab fa-youtube"></i>
+                    <h3>YOUTUBE</h3>
+                    <span>Highlights & VODs</span>
+                </a>
+                
+                <a href="#" class="social-card discord" title="Join Discord community">
+                    <i class="fab fa-discord"></i>
+                    <h3>DISCORD</h3>
+                    <span>Join the community</span>
+                </a>
+                
+                <a href="#" class="social-card twitter" title="Follow on Twitter">
+                    <i class="fab fa-twitter"></i>
+                    <h3>TWITTER</h3>
+                    <span>Updates & clips</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-flag-checkered"></i>
+                    <span>RACING STREAM</span>
+                </div>
+                <p>High-speed gaming entertainment • Live every day</p>
+                <div class="footer-social">
+                    <a href="#" title="Follow on Twitch"><i class="fab fa-twitch"></i></a>
+                    <a href="#" title="Subscribe on YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" title="Join Discord community"><i class="fab fa-discord"></i></a>
+                    <a href="#" title="Follow on Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ElevenLabs Script -->
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+    <script src="script.js"></script>
+</body>
+</html>
