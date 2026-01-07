@@ -9,19 +9,19 @@ Your AI coach is configured with Rick Sanchez's personality:
 - **Classic Rick phrases** ("Wubba lubba dub dub!", "Listen up, Morty!")
 - **Racing-specific tips** with Rick's cynical genius personality
 
-## 📺 Private Live Stream Setup
+## 📺 Public Live Stream Setup
 
-### Option 1: YouTube Private Stream
+### Option 1: YouTube Live Stream
 1. Go to YouTube Studio
 2. Create a new live stream
-3. Set visibility to "Private" or "Unlisted"
+3. Set visibility to "Public"
 4. Copy the stream URL
 5. Replace `YOUR_CHANNEL_ID` in `script.js` line 23
 
-### Option 2: Twitch Private Stream
+### Option 2: Twitch Live Stream
 1. Go to Twitch Creator Dashboard
 2. Start a new stream
-3. Set to private (requires Twitch Affiliate/Partner)
+3. Set to public
 4. Replace `YOUR_CHANNEL` in `script.js` line 26
 5. Add `rev-red.netlify.app` to allowed domains
 
@@ -30,18 +30,21 @@ Your AI coach is configured with Rick Sanchez's personality:
 2. Configure RTMP settings
 3. Replace `YOUR_CUSTOM_STREAM_URL` in `script.js` line 29
 
-## 🔒 Security & Privacy
+## 🌍 Public Access Features
 
-### Public Visitors Cannot:
-- **Interfere with your stream** (read-only access)
-- **Access stream controls** (private configuration)
-- **See private stream details** (only you can connect)
+### Public Visitors Can:
+- ✅ **Watch your live stream** - full viewing access
+- ✅ **See viewer count** - real-time audience numbers
+- ✅ **View stream duration** - how long you've been live
+- ✅ **See current game** - what you're playing
+- ✅ **Use Rick Sanchez AI coach** - racing advice and commentary
 
-### Stream Protection:
-- **Private YouTube/Twitch streams** - only invited viewers
-- **Domain restrictions** - only your site can embed
-- **No public chat access** - controlled by streaming platform
-- **Stream key protection** - never share your RTMP key
+### Stream Host Control:
+- 🔒 **Only you can start/stop streaming** - from your streaming software
+- 🔒 **Only you can change stream URL** - site configuration
+- 🔒 **Only you can access stream controls** - OBS/YouTube/Twitch dashboard
+- 🔒 **Chat moderation** - controlled by streaming platform
+- 🔒 **Stream key protection** - never share your RTMP key
 
 ## 🛠️ Configuration
 

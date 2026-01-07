@@ -17,12 +17,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const streamFrame = document.getElementById('streamFrame');
         const gameTitle = document.getElementById('gameTitle');
         
-        // Private streaming options - configure your stream here
+        // Public streaming options - configure your stream here
         const streamOptions = {
-            // Option 1: YouTube Private Stream
+            // Option 1: YouTube Live Stream
             youtube: 'https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID&autoplay=1',
             
-            // Option 2: Twitch Private Stream
+            // Option 2: Twitch Live Stream
             twitch: 'https://player.twitch.tv/?channel=YOUR_CHANNEL&parent=rev-red.netlify.app&autoplay=true',
             
             // Option 3: Custom RTMP/WebRTC stream
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         streamFrame.src = streamUrl;
         
         // Update game title based on current game
-        gameTitle.textContent = 'CarX Street - Private Session';
+        gameTitle.textContent = 'CarX Street - Live Racing';
         
         // Start stream duration timer
         startStreamTimer();
