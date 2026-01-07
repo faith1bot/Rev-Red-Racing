@@ -113,20 +113,26 @@
             
             <div class="stream-container">
                 <div class="stream-player">
-                    <div class="stream-placeholder">
+                    <div class="stream-placeholder" id="streamPlaceholder">
                         <div class="placeholder-content">
                             <i class="fas fa-gamepad"></i>
                             <h3>STREAM PLAYER</h3>
-                            <p>Connect your streaming platform here</p>
-                            <button class="btn-connect" title="Connect your streaming platform">CONNECT STREAM</button>
+                            <p>Private Stream - No Public Access</p>
+                            <button class="btn-connect" onclick="connectStream()" title="Connect your private stream">CONNECT PRIVATE STREAM</button>
                         </div>
                     </div>
+                    <iframe 
+                        id="streamFrame"
+                        title="Live Racing Stream"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
                     <div class="stream-overlay">
                         <div class="stream-info">
-                            <span class="game-title">CarX Street</span>
+                            <span class="game-title" id="gameTitle">CarX Street</span>
                             <span class="viewer-count">
                                 <i class="fas fa-eye"></i>
-                                <span class="viewer-number">1.2K</span>
+                                <span class="viewer-number" id="viewerCount">1.2K</span>
                             </span>
                         </div>
                     </div>
@@ -160,14 +166,17 @@
                         </div>
                     </div>
                     
-                    <!-- ElevenLabs Agent Widget -->
+                    <!-- ElevenLabs Agent Widget - Rick Sanchez AI Racing Coach -->
                     <div class="ai-assistant">
                         <div class="ai-header">
-                            <h3>AI RACING COACH</h3>
+                            <h3>AI RACING COACH - RICK</h3>
                             <span class="ai-status">ONLINE</span>
                         </div>
                         <div class="ai-widget-container">
-                            <elevenlabs-convai agent-id="3meuWcdt6TuA76OBOVFW"></elevenlabs-convai>
+                            <elevenlabs-convai 
+                                agent-id="3meuWcdt6TuA76OBOVFW"
+                                system-prompt="You are Rick Sanchez from Rick and Morty, acting as a chaotic genius racing coach. You're brilliant but unhinged, making racing commentary with dark humor and scientific explanations. Comment on racing techniques, drift physics, gaming strategies, and occasionally break the fourth wall. Use phrases like 'Wubba lubba dub dub!' and 'Listen up, Morty!' when giving advice. Keep responses edgy but helpful, with occasional burps and interdimensional references. Focus on racing performance, car physics, and gaming tips while maintaining Rick's cynical, alcoholic genius personality."
+                            ></elevenlabs-convai>
                         </div>
                     </div>
                 </div>

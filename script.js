@@ -11,6 +11,73 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 2000);
 
+    // Stream connection functionality
+    window.connectStream = function() {
+        const streamPlaceholder = document.getElementById('streamPlaceholder');
+        const streamFrame = document.getElementById('streamFrame');
+        const gameTitle = document.getElementById('gameTitle');
+        
+        // Private streaming options - configure your stream here
+        const streamOptions = {
+            // Option 1: YouTube Private Stream
+            youtube: 'https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID&autoplay=1',
+            
+            // Option 2: Twitch Private Stream
+            twitch: 'https://player.twitch.tv/?channel=YOUR_CHANNEL&parent=rev-red.netlify.app&autoplay=true',
+            
+            // Option 3: Custom RTMP/WebRTC stream
+            custom: 'YOUR_CUSTOM_STREAM_URL'
+        };
+        
+        // For demo, we'll use a placeholder - replace with your actual stream
+        const streamUrl = streamOptions.youtube; // Change this to your preferred platform
+        
+        // Hide placeholder and show stream
+        streamPlaceholder.style.display = 'none';
+        streamFrame.style.display = 'block';
+        streamFrame.src = streamUrl;
+        
+        // Update game title based on current game
+        gameTitle.textContent = 'CarX Street - Private Session';
+        
+        // Start stream duration timer
+        startStreamTimer();
+        
+        // Simulate viewer count updates
+        updateViewerCount();
+    };
+    
+    // Stream duration timer
+    function startStreamTimer() {
+        const durationElement = document.querySelector('.stream-duration');
+        let seconds = 0;
+        
+        setInterval(() => {
+            seconds++;
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+            
+            const formatted = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            if (durationElement) {
+                durationElement.textContent = formatted;
+            }
+        }, 1000);
+    }
+    
+    // Update viewer count
+    function updateViewerCount() {
+        const viewerElement = document.getElementById('viewerCount');
+        let viewers = Math.floor(Math.random() * 500) + 800; // Start with 800-1300 viewers
+        
+        setInterval(() => {
+            // Simulate viewer fluctuations
+            const change = Math.floor(Math.random() * 21) - 10; // -10 to +10
+            viewers = Math.max(100, viewers + change); // Keep at least 100 viewers
+            viewerElement.textContent = viewers.toLocaleString();
+        }, 5000); // Update every 5 seconds
+    }
+
     // Animated counter for statistics
     function animateCounter(element, target, duration = 2000) {
         const start = 0;
